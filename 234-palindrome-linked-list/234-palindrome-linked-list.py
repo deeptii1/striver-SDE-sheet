@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        '''
         arr=[]
         ptr=head
         while(ptr!=None):
@@ -23,6 +24,30 @@ class Solution:
             return True
         
         return check(arr)
+        '''
+        slow=head
+        fast=head
+        while(fast!=None and fast.next!=None):
+            fast=fast.next.next
+            slow=slow.next
         
+        prev=None
+        curr=slow
+        while curr!=None:
+            temp = curr.next 
+            curr.next = prev
+            prev = curr
+            curr = temp
+         
+        #print(curr)
+        #print(prev)
+        
+        while(prev!=None):
+            if prev.val!=head.val:
+                return False
+            prev=prev.next
+            head=head.next
+        return True
+            
         
             
