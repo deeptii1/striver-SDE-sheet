@@ -5,15 +5,6 @@
 #         self.next = next
 class Solution:
     def nextLargerNodes(self, head: Optional[ListNode]) -> List[int]:
-        def rev(res):
-            start=0
-            end=len(res)-1
-            while(start<end):
-                res[start],res[end]=res[end],res[start]
-                start+=1
-                end-=1
-            return (res)
-        
         arr=[]
         ptr=head
         while(ptr!=None):
